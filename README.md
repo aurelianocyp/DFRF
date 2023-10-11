@@ -4,6 +4,7 @@ The pytorch implementation for our ECCV2022 paper "Learning Dynamic Facial Radia
 [[Project]](https://sstzal.github.io/DFRF/) [[Paper]](https://arxiv.org/abs/2207.11770) [[Video Demo]](https://www.youtube.com/watch?v=F6fkVNk9bBw)
 
 ## Requirements
+RTX3090，不要在A5000跑
 - Python 3.7
 - Pytorch 1.9.0
 - Pytorch3d 0.5.0(安装完requirements后自行安装，还需安装ffmpeg=4.0=hcdf2ecd_0)
