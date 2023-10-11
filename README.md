@@ -7,7 +7,8 @@ The pytorch implementation for our ECCV2022 paper "Learning Dynamic Facial Radia
 RTX3090，不要在A5000跑
 - Python 3.7
 - Pytorch 1.9.0
-- Pytorch3d 0.5.0(安装完requirements后自行安装，还需安装ffmpeg=4.0=hcdf2ecd_0)
+- Pytorch3d 0.5.0(安装完requirements后自行安装，还需安装ffmpeg=4.0=hcdf2ecd_0,还需更改torch版本，pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+)
 - torchvision 0.10.0
 
 For more details, please refer to the `requirements.txt`. We conduct the experiments with a 24G RTX3090.
