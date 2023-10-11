@@ -6,7 +6,7 @@ The pytorch implementation for our ECCV2022 paper "Learning Dynamic Facial Radia
 ## Requirements
 - Python 3.8.11
 - Pytorch 1.9.0
-- Pytorch3d 0.5.0
+- Pytorch3d 0.5.0(安装完requirements后自行安装)
 - torchvision 0.10.0
 
 For more details, please refer to the `requirements.txt`. We conduct the experiments with a 24G RTX3090.
