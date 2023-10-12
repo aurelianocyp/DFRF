@@ -9,6 +9,7 @@ RTX3090，不要在A5000跑
 - Pytorch3d 0.5.0(安装完requirements后自行安装，还需安装ffmpeg=4.0=hcdf2ecd_0,还需更改torch版本，pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
 )
 - process data阶段的TensorFlow要求pip install tensorflow-gpu==2.6.0.如果TensorFlow变成2.6.0后还是报错，多半是安装TensorFlow时把torch版本替换了，再次用上面的pip install一下就好了
+- run阶段用tensorflow-gpu==2.6.0貌似好像也能行
 
 For more details, please refer to the `requirements.txt`. We conduct the experiments with a 24G RTX3090.
 
