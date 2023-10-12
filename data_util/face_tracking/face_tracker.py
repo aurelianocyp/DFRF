@@ -331,6 +331,7 @@ for i in range(int((num_frames-1)/batch_size+1)):
         loss = loss_col*0.5 + loss_lan*8 + loss_lap*100000 + loss_regexp*1.0
         if iter > 30:
             loss = loss_col*0.5 + loss_lan*1.5 + loss_lap*100000 + loss_regexp*1.0
+        print("loss:",loss)
         optimizer_cur_batch.zero_grad()
         loss.backward()
         optimizer_cur_batch.step()
