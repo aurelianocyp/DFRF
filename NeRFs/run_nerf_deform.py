@@ -1,3 +1,4 @@
+# 含summarywriter
 from load_audface_multiid import load_audface_data
 import os
 import sys
@@ -12,6 +13,7 @@ import torch.nn.functional as F
 from tqdm import tqdm, trange
 from natsort import natsorted
 from run_nerf_helpers_deform import *
+from torch.utils.tensorboard import SummaryWriter
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -596,7 +598,7 @@ def config_parser():
                         help='do not reload weights from saved ckpt')
     parser.add_argument("--ft_path", type=str, default=None,
                         help='specific weights npy file to reload for coarse network')
-    parser.add_argument("--N_iters", type=int, default=600000,
+    parser.add_argument("--N_iters", type=int, default=200000,
                         help='number of iterations')
 
     # rendering options
@@ -713,7 +715,8 @@ def config_parser():
 
 
 def train():
-
+    writer = SummaryWriter('dfrflog')
+    writer.add_scalar('start-end', time.time(), time.time())
     parser = config_parser()
     args = parser.parse_args()
     print(args.near, args.far)
@@ -907,6 +910,7 @@ def train():
 
     start = start + 1
     for i in trange(start, N_iters):
+        writer.add_scalar('iter_start_time', time.time(), i)
         time0 = time.time()
         # Sample random ray batch
         if use_batching:
@@ -1081,7 +1085,7 @@ def train():
             param_group['lr'] = new_lrate*5
         ################################
         dt = time.time()-time0
-
+        writer.add_scalar('iter_time', dt, i)
         # Rest is logging
         if i % args.i_weights == 0:
             path = os.path.join(basedir, expname_finetune, '{:06d}_head.tar'.format(i))
@@ -1105,6 +1109,9 @@ def train():
             tqdm.write(f"[TRAIN] Iter: {i} Loss: {loss.item()}  PSNR: {psnr.item()}")
 
         global_step += 1
+    writer.add_scalar('start-end', time.time(), time.time())
+    writer.close()
+
 
 
 if __name__ == '__main__':
