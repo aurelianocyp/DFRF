@@ -1,6 +1,6 @@
 #!/bin/bash
 iters="300000_head.tar"
-names="cnn2_25fps"
+names="Obama_ours"
 datasets="cnn2_25fps"
 near=0.5555068731307984
 far=1.1555068731307983
