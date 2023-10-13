@@ -1,7 +1,7 @@
 #!/bin/bash
 iters="300000_head.tar"
 names="Obama_ours"
-datasets="cnn2_25fps"
+datasets="Obama_ours"
 near=0.5555068731307984
 far=1.1555068731307983
 path="dataset/finetune_models/${names}/${iters}"
