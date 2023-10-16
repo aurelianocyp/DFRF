@@ -10,6 +10,7 @@ RTX3090，不要在A5000跑
 )
 - process data阶段的TensorFlow要求pip install tensorflow-gpu==2.6.0.如果TensorFlow变成2.6.0后还是报错，多半是安装TensorFlow时把torch版本替换了，再次用上面的pip install一下就好了
 - run阶段用tensorflow-gpu==2.6.0貌似好像也能行,错了，虽然2.6在run时能成功，但是tensorboard启动不了，所以还是乖乖在run时用tensorflow-gpu==1.15.2吧
+- 处理256*256的视频时，最好把process的01 2 63457分开跑，否则跑第二步时可能会报cuda out of memory
 
 For more details, please refer to the `requirements.txt`. We conduct the experiments with a 24G RTX3090.
 
