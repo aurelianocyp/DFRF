@@ -103,7 +103,7 @@ if running_step == 2:
             if image_path.endswith('.jpg'):
                 input = io.imread(os.path.join(ori_imgs_dir, image_path))[:, :, :3]
                 preds = fa.get_landmarks(input)
-                #print(image_path)
+                print(image_path)
                 if len(preds) > 0:
                     lands = preds[0].reshape(-1, 2)[:,:2]
                     np.savetxt(os.path.join(ori_imgs_dir, image_path[:-3] + 'lms'), lands, '%f')
@@ -115,7 +115,7 @@ for i in range(max_frame_num):
     if os.path.isfile(os.path.join(ori_imgs_dir, str(i) + '.lms')):
         valid_img_ids.append(i)
 valid_img_num = len(valid_img_ids)
-print(valid_img_ids)
+#print(valid_img_ids)
 tmp_img = cv2.imread(os.path.join(ori_imgs_dir, str(valid_img_ids[0])+'.jpg'))
 h, w = tmp_img.shape[0], tmp_img.shape[1]
 
