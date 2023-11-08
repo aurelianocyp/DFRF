@@ -49,6 +49,7 @@ def load_audface_data(basedir, testskip=1, test_file=None, aud_file=None, train_
         imgs = []
         lip_rects = []
         torso_bcs = []
+        print("audio npy: ", aud_file)
         aud_features = np.load(os.path.join(basedir, aud_file))
 
         aud_start = 0
